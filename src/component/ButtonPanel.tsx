@@ -1,5 +1,5 @@
 export default function ButtonPanel(props: {
-  buttonHandler: (code: String) => void;
+  buttonHandler: (code: string) => void;
 }) {
   // calcからハンドラーを受け取る
   return <div>
@@ -19,7 +19,7 @@ export default function ButtonPanel(props: {
       <button onClick={() => props.buttonHandler("1")}>1</button>
       <button onClick={() => props.buttonHandler("2")}>2</button>
       <button onClick={() => props.buttonHandler("3")}>3</button>
-      <button onClick={() => props.buttonHandler("*")}>*</button>
+      <button onClick={() => props.buttonHandler("+")}>+</button>
     </div>
     <div>
       <button onClick={() => props.buttonHandler("0")}>0</button>

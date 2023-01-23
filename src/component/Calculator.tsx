@@ -8,15 +8,15 @@ export default function Calculator() {
     current: "0",
     operand: 0,
     operator: null,
-    ixNextClear: false,
+    isNextClear: false,
   })
-  const buttonHandler = (code: String) => {
-    calculate(code, state)
+  const buttonHandler = (code: string) => {
+    const nextState = calculate(code, state);
     setState(nextState);
   }
   return (
     <div>
-      <Display />
+      <Display value={state.current} />
       <ButtonPanel buttonHandler={buttonHandler} />
     </div>
   );
