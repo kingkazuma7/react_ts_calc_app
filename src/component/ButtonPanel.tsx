@@ -1,5 +1,7 @@
+import { ButtonCode } from "../logic/calculate";
+
 export default function ButtonPanel(props: {
-  buttonHandler: (code: string) => void;
+  buttonHandler: (code: ButtonCode) => void;
 }) {
   // calcからハンドラーを受け取る
   return <div>

@@ -1,5 +1,20 @@
+// 型 button: stringではなんでも入ってしまうので以下で定義
+export type Operator = "+" | "-";
+export type NumberCode = 
+"0" |
+"1" |
+"2" |
+"3" |
+"4" |
+"5" |
+"6" |
+"7" |
+"8" |
+"9";
+export type ButtonCode = Operator | NumberCode | "." | "D" | "AC" | "=";
+
 // 「どの状態のときにどのボタンを押すと、どの状態になる」関数
-export default function calculate(button: string, state: State): State {
+export default function calculate(button: ButtonCode, state: State): State {
   // 数値かどうか
   if (isNumberButton(button)) { // 数値押された場合
     return handleNumberButton(button, state);
