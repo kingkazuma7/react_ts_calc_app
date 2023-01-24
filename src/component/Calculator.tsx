@@ -2,6 +2,7 @@ import { useState } from "react";
 import calculate, { State } from "../logic/calculate";
 import ButtonPanel from "./ButtonPanel";
 import Display from "./Display";
+import "./Calculator.scss";
 
 export default function Calculator() {
   const [state, setState] = useState<State>({
@@ -15,7 +16,7 @@ export default function Calculator() {
     setState(nextState);
   }
   return (
-    <div>
+    <div className="buttonPanel">
       <Display value={state.current} />
       <ButtonPanel buttonHandler={buttonHandler} />
     </div>
