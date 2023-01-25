@@ -16,7 +16,7 @@ export type ButtonCode = Operator | NumberCode | "." | "D" | "AC" | "=";
 // 「どの状態のときにどのボタンを押すと、どの状態になる」関数
 export default function calculate(button: ButtonCode, state: State): State {
   // 数値かどうか
-  if (isNumberButton(button)) { // 数値押された場合
+  if (isNumberButton(button)) { // 数値押された場合 型chdck
     return handleNumberButton(button, state);
   }
   // オペレーターかどうか
@@ -50,7 +50,7 @@ export interface State {
 }
 
 // 数字ボタン押されたか判別
-function isNumberButton(button: string) {
+function isNumberButton(button: string): button is NumberCode { // 型ガード
   return (
     button === "0" ||
     button === "1" ||
@@ -65,7 +65,7 @@ function isNumberButton(button: string) {
   );
 }
 // 数値かどうか
-function handleNumberButton(button: string, state: State): State {
+function handleNumberButton(button: NumberCode, state: State): State {
   if (state.isNextClear) {
     return {
       current: button,
@@ -91,11 +91,11 @@ function handleNumberButton(button: string, state: State): State {
 }
 
 // オペレーターかどうか
-function isOperatorButton(button: string) {
+function isOperatorButton(button: string): button is Operator {
   return button === "+" || button === "-";
 }
 // オペレーター（+-）が押された判別
-function handleOperatorButton(button: string, state: State): State {
+function handleOperatorButton(button: Operator, state: State): State {
   // 押されてない
   if (state.operator === null) {
     return {
